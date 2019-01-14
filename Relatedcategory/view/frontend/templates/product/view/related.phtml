@@ -1,0 +1,44 @@
+<?php /* @var $block \Pcnametag\Relatedcategory\Block\Product\View\Related */?>
+<?php $_product = $block->getProduct() ?>
+
+<?php
+$attribute_list = $block->getAttribute();
+//echo $block->getPlaceholderImage();
+
+?>
+<?php
+if(!empty($attribute_list))
+{?>
+<div class="cross-sold">
+	<h3>Shop other pc/nametag products:
+	<!--?php 
+   //$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    //$product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');//get current product
+    //echo $product->getId()."<br/>";
+   // echo $product->getName()."<br/>";?-->
+    </h3>
+	<ul>
+		<?php
+		 foreach ($attribute_list as $category_prod) {
+		?>
+		<li>
+			<div class="pic">
+				<?php if(!empty($category_prod['categoryImageUrl'])){?>
+				<img src="<?php echo $category_prod['categoryImageUrl'];?>" alt="">
+				<?php }
+				else{?>
+					<img src="<?php echo $block->getViewFileUrl("Pcnametag_Relatedcategory::images/small_image.jpg"); ?>" alt="">
+				<?php }?>
+			</div>
+			<div class="details">
+				<h4><?php echo $category_prod['categoryName'];?></h4>
+				<p><?php echo substr(strip_tags(@$category_prod['categoryShortDescription']),'0','50');?></p>
+				<a href="<?php echo $category_prod['categoryURL'];?>" class="shop-now">Shop Now</a>
+			</div>
+			<div class="cl"></div>
+		</li>
+		<?php }?>
+	</ul>
+	<div class="cl"></div>
+</div>
+<?php }?>

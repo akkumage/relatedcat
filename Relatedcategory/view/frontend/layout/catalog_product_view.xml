@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<body>
+    <!--<referenceContainer name="product.add.form">-->
+		<referenceContainer name="content">
+			<container after="product.info.details" name="relatedcategory" as="productRelated" label="Product Related" htmlTag="div" htmlClass="related-viewed-container">
+
+        <block class="Pcnametag\Relatedcategory\Block\Product\View\Related"
+            name="product.view.related"
+            template="Pcnametag_Relatedcategory::product/view/related.phtml"
+            after="-">
+        </block>
+        </container>
+    </referenceContainer>
+</body>
